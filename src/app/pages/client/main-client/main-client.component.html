@@ -1,0 +1,11 @@
+<body *ngIf="isLoggedIn; else loggedOut">
+<h3>Выберите услугу</h3>
+<button (click)=masterCall() class="btn btn-success">masterCall</button>
+<button (click)=clientKeyCar() class="btn btn-success">clientKeyCar</button>
+<button (click)=clientOrders() class="btn btn-success">clientOrders</button>
+
+</body>
+
+<body #loggedOut>
+<div><a href="/login">Login</a></div>
+</body>

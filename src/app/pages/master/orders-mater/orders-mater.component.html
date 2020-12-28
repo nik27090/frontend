@@ -1,0 +1,61 @@
+<body>
+<div><h1>Список masterCalls</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Клиент</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Решение</th>
+      <th>Цена</th>
+    </tr>
+    <tr *ngFor="let masterCall of masterCalls">
+      <td>{{masterCall.id}}</td>
+      <td>{{masterCall["client"]}}</td>
+      <td>{{masterCall["desc"]}}</td>
+      <td>{{masterCall["status"]}}</td>
+      <td>{{masterCall["conclusion"]}}</td>
+      <td>{{masterCall["price"]}}</td>
+      <td>
+        <button (click)=createReport(masterCall.id) class="btn btn-success">Написать отчет</button>
+      <td>
+      <td>
+        <button (click)=closeCall(masterCall.id) class="btn btn-success">Закрыть таску</button>
+      <td>
+
+    </tr>
+  </table>
+</div>
+<div><h1>Список keyCar</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Клиент</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Цена</th>
+    </tr>
+    <tr *ngFor="let keyCar of keyCars">
+      <td>{{keyCar.id}}</td>
+      <td>{{keyCar["client"]}}</td>
+      <td>{{keyCar["desc"]}}</td>
+      <td>{{keyCar["status"]}}</td>
+      <td>{{keyCar["price"]}}</td>
+      <td>
+        <button (click)=addOffer(keyCar.id) class="btn btn-success">Добавить предложение</button>
+      <td>
+      <td>
+        <button (click)=checkOffers(keyCar.id) class="btn btn-success">Посмотреть предложения</button>
+      <td>
+      <td>
+        <button (click)=closeKeyCar(keyCar.id) class="btn btn-success">Закрыть таску</button>
+      <td>
+    </tr>
+  </table>
+</div>
+<div>
+  <button (click)=back() class="btn btn-success">Back</button>
+</div>
+</body>

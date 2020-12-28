@@ -1,0 +1,105 @@
+<body *ngIf="!setMaster; else loggedOut">
+Админская
+<div>
+  <button (click)=registerMaster() class="btn btn-success">registerMaster</button>
+</div>
+<div><h1>Список masterCalls</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Клиент</th>
+      <th>Мастер</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Решение</th>
+      <th>Цена</th>
+    </tr>
+    <tr *ngFor="let masterCall of masterCalls">
+      <td>{{masterCall.id}}</td>
+      <td>{{masterCall["client"]}}</td>
+      <td>{{masterCall["master"]}}</td>
+      <td>{{masterCall["desc"]}}</td>
+      <td>{{masterCall["status"]}}</td>
+      <td>{{masterCall["conclusion"]}}</td>
+      <td>{{masterCall["price"]}}</td>
+      <td>
+        <button (click)=getMastersCall(masterCall.id) class="btn btn-success">Select Master</button>
+      <td>
+    </tr>
+  </table>
+</div>
+<div><h1>Список keyCar</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Клиент</th>
+      <th>Мастер</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Цена</th>
+    </tr>
+    <tr *ngFor="let keyCar of keyCars">
+      <td>{{keyCar.id}}</td>
+      <td>{{keyCar["client"]}}</td>
+      <td>{{keyCar["master"]}}</td>
+      <td>{{keyCar["desc"]}}</td>
+      <td>{{keyCar["status"]}}</td>
+      <td>{{keyCar["price"]}}</td>
+      <td>
+        <button (click)=getMastersKeyCar(keyCar.id) class="btn btn-success">Select Master</button>
+      <td>
+    </tr>
+  </table>
+</div>
+</body>
+
+<body #loggedOut>
+<table class="mat-elevation-z8">
+  <tr>
+    <th>№</th>
+    <th>Имя</th>
+    <th>Описание</th>
+  </tr>
+  <tr *ngFor="let master of masters">
+    <td>{{master.id}}</td>
+    <td>{{master["fullName"]}}</td>
+    <td>{{master["desc"]}}</td>
+    <div class="alert alert-warning" *ngIf='invalidSetMaster'>{{invalidMessage}}</div>
+    <td *ngIf="setKey">
+      <button (click)=setMasterKeyCar(master.id) class="btn btn-success">Set Master</button>
+    <td>
+    <td *ngIf="setCall">
+      <button (click)=setMasterCall(master.id) class="btn btn-success">Set Master</button>
+    <td>
+  </tr>
+</table>
+<button (click)=back() class="btn btn-success">Back</button>
+</body>
+<!--<div><h1>Список masterCalls</h1></div>
+{{#masterCalls}}
+<div>
+  <div><b>{{id}}</b></div>
+  <span>Клиент: {{client}}</span>
+  <span>Статус: {{status}}</span>
+  <span>{{#master}}Мастер:{{master}}{{/master}}</span>
+  <span>Цена: {{price}}</span>
+  <div>Описание: {{desc}}</div>
+  <a href="/admin/masterCall/{{id}}/selectMaster">Назначить мастера</a>
+</div>
+{{/masterCalls}}
+<div><h1>Список keyCar</h1></div>
+{{#keyCar}}
+<div>
+  <div><b>{{id}}</b></div>
+  <span>Клиент: {{client}}</span>
+  <span>Статус: {{status}}</span>
+  <span>{{#master}}Мастер:{{master}}{{/master}}</span>
+  <span>Цена: {{price}}</span>
+  <div>Описание: {{desc}}</div>
+  <a href="/admin/keyCar/{{id}}/selectMaster">Назначить мастера</a>
+  <a href="/keyCar/offers/{{id}}">Посмотреть предложения мастера</a>
+</div>
+{{/keyCar}}-->
+

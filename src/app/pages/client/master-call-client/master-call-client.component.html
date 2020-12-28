@@ -1,0 +1,23 @@
+<body *ngIf="isLoggedIn; else loggedOut">
+Вызов мастера
+<div>Укажите пожалуйста место и время встречи. А так же опишите автомобиль который будет осматриваться
+  или приложите ссылку на анкету автомобиля
+</div>
+<div class="form-group">
+  <label>Описание :</label>
+  <input type="text" class="form-control" id="desc" [(ngModel)]="desc" placeholder="Enter Description"
+         name="desc">
+</div>
+<button (click)=send() class="btn btn-success">Send</button>
+<div class="alert alert-warning" *ngIf='invalidSend'>{{invalidMessage}}</div>
+<div class="alert alert-success" *ngIf='sendSuccess'>{{successMessage}}</div>
+<div>
+  <button class="btn btn-primary" type="submit" (click)="back()">
+    <span>Back</span>
+  </button>
+</div>
+</body>
+
+<body #loggedOut>
+<div><a href="/login">Login</a></div>
+</body>

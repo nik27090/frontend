@@ -1,0 +1,11 @@
+<body>
+<div class="form-group">
+  <label>Report :</label>
+  <input type="text" class="form-control" id="report" [(ngModel)]="report" placeholder="Enter report"
+         name="report">
+</div>
+<button (click)=handleReport() class="btn btn-success">Send</button>
+<div>
+  <button (click)=back() class="btn btn-success">Back</button>
+</div>
+</body>

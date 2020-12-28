@@ -1,0 +1,70 @@
+<body>
+Ваши заказы
+<div><h1>Список masterCalls</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Мастер</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Решение</th>
+      <th>Цена</th>
+      <th>Stars</th>
+    </tr>
+    <tr *ngFor="let masterCall of masterCalls">
+      <td>{{masterCall.id}}</td>
+      <td>{{masterCall["master"]}}</td>
+      <td>{{masterCall["desc"]}}</td>
+      <td>{{masterCall["status"]}}</td>
+      <td>{{masterCall["conclusion"]}}</td>
+      <td>{{masterCall["price"]}}</td>
+      <td>
+        <div>
+          <input type="text" id="stars" [(ngModel)]="starsForCall" placeholder="Enter Stars"
+                 name="stars">
+          <button class="btn btn-primary" type="submit" (click)="setStarsForCall(masterCall.id)">
+            <span>Set Stars</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div><h1>Список keyCar</h1></div>
+<div>
+  <table class="mat-elevation-z8">
+    <tr>
+      <th>№</th>
+      <th>Мастер</th>
+      <th>Описание</th>
+      <th>Статус</th>
+      <th>Цена</th>
+      <th>Offers</th>
+      <th>Stars</th>
+    </tr>
+    <tr *ngFor="let keyCar of keyCars">
+      <td>{{keyCar.id}}</td>
+      <td>{{keyCar["master"]}}</td>
+      <td>{{keyCar["desc"]}}</td>
+      <td>{{keyCar["status"]}}</td>
+      <td>{{keyCar["price"]}}</td>
+      <button (click)=checkOffers(keyCar.id) class="btn btn-success">Offers</button>
+      <td>
+        <div>
+          <input type="text" id="starsKey {{keyCar.id}}" [(ngModel)]="starsForKeyCar" placeholder="Enter Stars"
+                 name="stars">
+          <button class="btn btn-primary" type="submit" (click)="setStarsForKeyCar(keyCar.id)">
+            <span>Set Stars</span>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <button class="btn btn-primary" type="submit" (click)="back()">
+    <span>Back</span>
+  </button>
+</div>
+</body>
